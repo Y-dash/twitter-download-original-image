@@ -3,10 +3,10 @@
 	"name": "Twitter, Download Original Image",
 	"version": "1.1.1",
 	"description": "twitter.com のツイート内画像を右クリックした際に、「元画像を保存」メニューを表示します。",
-	"permissions" : [ "contextMenus", "*://pbs.twimg.com/*", "downloads" ],
+	"permissions" : ["contextMenus", "*://pbs.twimg.com/*", "downloads"],
 	"background":
 	{
-		"scripts": [ "scripts/event.js" ],
+		"scripts": ["scripts/event.js"],
 		"persistent": false
 	},
 	"icons" :

@@ -13,7 +13,7 @@ chrome.contextMenus.onClicked.addListener(
 );
 
 function init(): void {
-	if (isCreatedContextMenu === true) {
+	if (isCreatedContextMenu) {
 		return;
 	}
 
