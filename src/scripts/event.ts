@@ -4,12 +4,10 @@ let isCreatedContextMenu: boolean = false;
 chrome.runtime.onInstalled.addListener(init);
 chrome.runtime.onStartup.addListener(init);
 
-chrome.contextMenus.onClicked.addListener(
-	function(info) {
-		if (info.srcUrl && (info.menuItemId === CONTEXT_ID)) {
-			download(info.srcUrl);
-		}
-	}
+chrome.contextMenus.onClicked.addListener((info) => {
+	if (info.srcUrl && (info.menuItemId === CONTEXT_ID)) {
+		download(info.srcUrl);
+	}}
 );
 
 function init(): void {
