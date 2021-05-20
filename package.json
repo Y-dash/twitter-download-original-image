@@ -1,6 +1,6 @@
 {
   "name": "twitter-download-original-image",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Google Chrome拡張機能。 twitter.com のツイート内画像を右クリックした際、「元画像を保存」メニューを表示。",
   "repository": {
     "type": "git",
