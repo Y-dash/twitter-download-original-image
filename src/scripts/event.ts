@@ -1,14 +1,14 @@
 const CONTEXT_ID: string = 'twitter-download-original-image';
 
 chrome.runtime.onInstalled.addListener(() => {
-	chrome.contextMenus.removeAll();
-
-	chrome.contextMenus.create({
-		'type': 'normal',
-		'id': CONTEXT_ID,
-		'title': '元画像を保存',
-		'contexts': ['image'],
-		'targetUrlPatterns': ['*://pbs.twimg.com/media/*']
+	chrome.contextMenus.removeAll(() => {
+		chrome.contextMenus.create({
+			'type': 'normal',
+			'id': CONTEXT_ID,
+			'title': '元画像を保存',
+			'contexts': ['image'],
+			'targetUrlPatterns': ['*://pbs.twimg.com/media/*']
+		});
 	});
 });
 
