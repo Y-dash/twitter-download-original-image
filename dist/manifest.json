@@ -1,18 +1,22 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "Twitter, Download Original Image",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"description": "twitter.com のツイート内画像を右クリックした際に、「元画像を保存」メニューを表示します。",
-	"permissions" : ["contextMenus", "*://pbs.twimg.com/*", "downloads"],
-	"background":
-	{
-		"scripts": ["scripts/event.js"],
-		"persistent": false
-	},
-	"icons" :
-	{
+	"icons": {
 		"16": "icons/icon16.png",
-		"48" : "icons/icon48.png",
-		"128" : "icons/icon128.png"
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+	"author": "Y-dash",
+	"permissions": [
+		"contextMenus",
+		"downloads"
+	],
+	"host_permissions": [
+		"*://pbs.twimg.com/*"
+	],
+	"background": {
+		"service_worker": "scripts/event.js"
 	}
 }
