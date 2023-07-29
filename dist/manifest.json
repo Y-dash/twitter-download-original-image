@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
 	"name": "Twitter, Download Original Image",
-	"version": "1.1.5",
-	"description": "twitter.com のツイート内画像を右クリックした際に、「元画像を保存」メニューを表示します。",
+	"version": "1.1.6",
+	"description": "Twitter Web App (twitter.com) のツイート内画像を右クリックした際に「画像をオリジナルサイズで保存」メニューを表示します。",
 	"icons": {
 		"16": "icons/icon16.png",
 		"48": "icons/icon48.png",

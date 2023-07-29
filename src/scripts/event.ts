@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(() => {
 		chrome.contextMenus.create({
 			'type': 'normal',
 			'id': CONTEXT_ID,
-			'title': '元画像を保存',
+			'title': '画像をオリジナルサイズで保存',
 			'contexts': ['image'],
 			'targetUrlPatterns': ['*://pbs.twimg.com/media/*']
 		});
