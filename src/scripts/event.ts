@@ -14,17 +14,34 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.contextMenus.onClicked.addListener((info) => {
 	if (info.srcUrl && (info.menuItemId === CONTEXT_ID)) {
-		download(new URL(info.srcUrl));
+		callDownload(new URL(info.srcUrl));
 	}}
 );
 
-function download(src: URL): void {
-	src.searchParams.set('name', 'orig');
+function callDownload(targetSrc: URL): void {
+	targetSrc.searchParams.set('name', 'orig');
 
-	let fileName: string = `${src.pathname.replace('/media/', '')}_${src.searchParams.get('name')}.${src.searchParams.get('format')}`;
+	// 画像拡大後の右クリック
+	if (targetSrc.searchParams.get('format') !== 'webp') {
+		download(targetSrc);
+		return;
+	}
 
+	// ツイート内サムネイルの右クリック
+	targetSrc.searchParams.set('format', 'jpg');
+
+	fetch(targetSrc.toString()).then((response) => {
+		if (!response.ok) {
+			targetSrc.searchParams.set('format', 'png');
+		}
+
+		download(targetSrc);
+	});
+}
+
+function download(targetSrc: URL) {
 	chrome.downloads.download({
-		url: src.toString(),
-		filename: fileName
+		url: targetSrc.toString(),
+		filename: `${targetSrc.pathname.replace('/media/', '')}_${targetSrc.searchParams.get('name')}.${targetSrc.searchParams.get('format')}`
 	});
 }
